@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_P62_P2023_7_19_动态内存管理", "test_P62_P2023_7_19_动态内存管理\test_P62_P2023_7_19_动态内存管理.vcxproj", "{F7BBCABA-F291-4EF6-824F-D3A2E61CE7D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7BBCABA-F291-4EF6-824F-D3A2E61CE7D8}.Debug|x64.ActiveCfg = Debug|x64
+		{F7BBCABA-F291-4EF6-824F-D3A2E61CE7D8}.Debug|x64.Build.0 = Debug|x64
+		{F7BBCABA-F291-4EF6-824F-D3A2E61CE7D8}.Debug|x86.ActiveCfg = Debug|Win32
+		{F7BBCABA-F291-4EF6-824F-D3A2E61CE7D8}.Debug|x86.Build.0 = Debug|Win32
+		{F7BBCABA-F291-4EF6-824F-D3A2E61CE7D8}.Release|x64.ActiveCfg = Release|x64
+		{F7BBCABA-F291-4EF6-824F-D3A2E61CE7D8}.Release|x64.Build.0 = Release|x64
+		{F7BBCABA-F291-4EF6-824F-D3A2E61CE7D8}.Release|x86.ActiveCfg = Release|Win32
+		{F7BBCABA-F291-4EF6-824F-D3A2E61CE7D8}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {275B5E4D-102F-44E2-A7BB-DE05B8901A37}
+	EndGlobalSection
+EndGlobal
