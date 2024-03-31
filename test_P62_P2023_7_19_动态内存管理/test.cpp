@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_DEPRECATE
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /*
 * @C_P62_2023_7_19_动态内存_malloc
@@ -178,9 +179,7 @@ int main()
 
 /*
 *@C_P157(新版2021版)_2023_7_21_17点52分_笔试题1
-
-*/
-
+//错误代码
 void GetMemory(char* p)
 {
 	p = (char*)malloc(1000);
@@ -189,14 +188,130 @@ void GetMemory(char* p)
 void Test(void)
 {
 	char* str = NULL;
-	GetMemory(str);
+	GetMemory(str);//值传递
 	strcpy(str, "Hello World");
 	printf(str);
+}
+//动态申请的内存未释放，会造成内存泄漏
+int main()
+{
+	Test();
+	return 0;
+}
+//修改后正确的代码_1
+char* GetMemory(char* p)
+{
+	p = (char*)malloc(1000);
+	return p;
+}
+
+void Test(void)
+{
+	char* str = NULL;
+	str=GetMemory(str);
+	strcpy(str, "Hello World");
+	printf(str);
+	free(str);
+	str = NULL;
 }
 int main()
 {
 	Test();
 	return 0;
 }
+//修改方式_2
+void GetMemory(char** p)//用二级指针来接收地址，解引用
+{
+	*p = (char*)malloc(1000);
+}
+
+void Test(void)
+{
+	char* str = NULL;
+	GetMemory(&str);//地址传递
+	strcpy(str, "Hello World");
+	printf(str);
+	free(str);
+}
+int main()
+{
+	Test();
+	return 0;
+}
+*/
+
+/*
+* C_P157(新版2021)_2023_7_24_笔试题2_栈上的内存访问问题
+* 错误代码
+char* GetMemory(void)
+{
+	char p[] = "Hello World";
+	return p;
+//在栈上创建了一个数组，在函数结束后数组销毁，内存释放，空间返还给操作系统，但是地址被返回
+}
+void Test(void)
+{
+	char* str = NULL;
+	str = GetMemory();
+//通过返回的地址去找数组，因为内存已经被释放，就会造成非法访问，
+	printf(str);//打印结果为随机数
+}
+
+int main()
+{
+	Test();
+	return 0;
+}
+*/
+
+/*
+* C_P157(新版2021)_2023_7_24_笔试题3
+* 错误代码
+void GetMemory(char** p,int num)
+{
+	*p = (char*)malloc(num);
+}
+
+void Test(void)
+{
+	char* str = NULL;
+	GetMemory(&str,100);
+	strcpy(str, "Hello");
+	printf(str);
+	//没有释放空间，其他无错
+}
+int main()
+{
+	Test();
+	return 0;
+}
+
+*/
+
+/*
+* C_P157(新版2021)_2023_7_24_笔试题4
+* 错误代码
+
+void Test(void)
+{
+	char* str = (char*)malloc(100);
+	strcmp(str, "Hello World");
+	free(str);
+	//没有对释放的空间进行置空指针处理
+	//str=NULL;
+	if (str != NULL)
+	{
+		strcmp(str, "World");
+		printf(str);
+	}
+}
+int main()
+{
+	Test();
+	return 0;
+}
+
+*/
+
 
 
